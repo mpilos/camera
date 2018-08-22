@@ -1,14 +1,47 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+    <ion-navbar color="primary">
+      <ion-title>
+        NonnyCam
+      </ion-title>
+    </ion-navbar>
+   </ion-header>
+   
+   <ion-content padding class="img">
+    
+      <ion-fab right bottom>
+          <button ion-fab color="primary" (click)="takePhoto()"style="background-color:transparent">
+              <ion-icon name="md-camera"></ion-icon>
+          </button>
+      </ion-fab>
+   
+      <ion-fab left bottom>
+          <button ion-fab color="primary" (click)="Gallery()"style="background-color:transparent">
+              <ion-icon name="md-images"></ion-icon>
+          </button>
+      </ion-fab>
+      
+        <button ion-button (click)="CropPicture()" style="background-color:transparent">
+            <ion-icon name="md-crop"></ion-icon>
+        </button>
+    
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6   *ngFor=" let photo of photos; let id =index">
+            <ion-card class="block">
+              <ion-icon name="trash" class="md-trach" (click)="deletePhoto(id)"></ion-icon>
+            <img [src]="photo" *ngIf="photo"/>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item style="background-color:transparent">
+          
+        </ion-item>    
+        <ion-fab right>
+            <button ion-fab color="primary" (click)="toggle()"style="background-color:transparent">
+                <ion-icon name="md-flash"></ion-icon>
+                <span>{{isOn ?'on':'off'}}</span>  
+            </button>
+        </ion-fab>
+     
+   </ion-content>

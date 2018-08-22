@@ -1,3 +1,11 @@
 page-home {
-
-}
+    .img{
+        background-image:url('../../assets/imgs/large.png');
+        
+       }
+       .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
